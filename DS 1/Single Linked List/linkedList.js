@@ -42,9 +42,10 @@ class linkedList {
 }
 
 const list = new linkedList()
-list.insert(1)
-list.insert(2)
+// list.insert(1)
+// list.insert(4)
+// list.insert(2)
 list.insert(3)
-list.insert(4)
-list.insertBeginning(6)
+
+// list.insertBeginning(6)
 list.display()
