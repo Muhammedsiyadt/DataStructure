@@ -129,6 +129,30 @@ class linkedList {
         this.size--
     }
 
+    // Find Middle And Delete It
+    middle(){
+        let current = this.head 
+        let prev = null
+        let half = Math.floor(this.size / 2)
+        for (let i = 0; i < half; i++) {
+            prev = current
+            current = current.next 
+        }
+        prev.next = current.next
+    }
+
+    // Removing the duplicate values 
+    removeDuplicates() {
+        let current = this.head;
+        while (current.next) {
+            if (current.data === current.next.data) {
+                current.next = current.next.next;
+            } else {
+                current = current.next;
+            }
+        }
+    }
+
 
 
     printNode() {
@@ -150,10 +174,14 @@ const list = new linkedList()
 list.addFirst(100)
 list.addLast(200)
 list.addLast(300)
+list.addLast(300)
 list.addLast(400)
 list.addLast(500)
 // list.add(3, 1122)
 // list.deleteFirstIndex(0)
 // list.deleteLastIndex(2)
-list.deleteAnyIndex(2)
+// list.deleteAnyIndex(2)
+//  console.log(list.middle());
+// list.removeDuplicates()
+// list.middle()
 list.printNode()

@@ -1,19 +1,18 @@
 function binarySearch(array, target) {
-    const left = 0
-    const right = array.length - 1
+    let left = 0;
+    let right = array.length - 1;
 
     while (left <= right) {
-        const mid = Math.floor((left + right) / 2)
+        const mid = Math.floor((left + right) / 2);
         if (array[mid] === target) {
-            return mid
+            return mid;
         } else if (array[mid] < target) {
-            mid = mid - 1
+            left = mid + 1;
         } else {
-            mid = mid + 1
-        }
+            right = mid - 1;
+        } 
     }
-    return mid
+    return -1;
+} 
 
-}
-
-console.log(binarySearch([1, 3, 5, 7, 9, 11, 13, 15, 17,2],9));
+console.log(binarySearch([1, 3, 5, 7, 9, 11, 13, 15, 17, 2 , 5], 11));

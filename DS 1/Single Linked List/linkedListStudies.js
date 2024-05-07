@@ -114,6 +114,16 @@ class linkedList {
         this.size--
     }
 
+    deleteDup(){
+        let current = this.head
+        while(current && current.next){
+            if(current.data === current.next.data){
+                current.next = current.next.next
+            }
+            current = current.next
+        }
+    }
+
     print() {
         if (this.size == 0) {
             console.log('List is Empty....!');
@@ -125,15 +135,32 @@ class linkedList {
             }
         }
     }
+    printReverse() {
+        const stack = [];
+        let current = this.head;
+        while (current) {
+            stack.push(current.data);
+            current = current.next;
+        }
+        while (stack.length > 0) {
+            console.log(stack.pop());
+        }
+    }
 }
 
 const list = new linkedList()
 list.prepend(100)
 list.append(110)
+// list.append(120)
 list.append(120)
 list.append(130)
+// list.append(140)
 list.append(140)
-list.deleteNodeByValue(120)
+// list.deleteNodeByValue(120)
 // list.deleteNode()
-// list.insert(1005, 2)  
+// list.insert(1005, 2) 
+// list.deleteDup() 
+console.log('first');
 list.print()
+console.log('last');
+list.printReverse()

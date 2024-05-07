@@ -39,6 +39,8 @@ class linkedList {
         newNode.next = this.head;
         this.head = newNode;
     }
+
+    
 }
 
 const list = new linkedList()

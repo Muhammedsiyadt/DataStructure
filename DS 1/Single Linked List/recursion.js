@@ -15,8 +15,6 @@
 //         return 1
 //     }
 //     return array[array.length - 1] * multiply(array.slice(0, array.length - 1))
-
-
 // }
 
 // const nums = [1, 2, 3, 4]
@@ -81,14 +79,15 @@
 
 
 // REVERSE A STRING
-function reverse(str) {
-    if (str.length <= 1) {
-        return str;
-    }
-    return str[str.length-1] + reverse(str.slice(0, -1))
-    return reverse(str.substr(1)) + str.charAt(0)
-}
+// function reverse(str) {
+    
+    // if (str.length <= 1) {
+    //     return str;
+    // }
+    // return str[str.length-1] + reverse(str.slice(0, -1))
+    // return reverse(str.substr(1)) + str.charAt(0)
+// }
 
-console.log(reverse('anas')) 
+// console.log(reverse('anas')) 
 
 
