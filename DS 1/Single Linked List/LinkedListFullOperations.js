@@ -240,7 +240,7 @@ class linkedList {
                 current.next = prev 
                 prev = current
                 current = nextNode
-            }
+            } 
             this.head = prev
         }
     }
