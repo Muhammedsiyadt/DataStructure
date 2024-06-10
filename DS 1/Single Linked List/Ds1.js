@@ -1,5 +1,5 @@
 
-
+// CREATE NODE CALL
 class Node {
     constructor(data) {
         this.data = data
@@ -7,6 +7,7 @@ class Node {
     }
 }
 
+// CREATE LINKEDLIST CLASS
 class linkedList { 
     constructor() {
         this.head = null
@@ -21,6 +22,8 @@ class linkedList {
         return this.size
     }
 
+    // INSERTION
+    // INSERTING TO FIRST
     prepend(data) {
         const node = new Node(data)
         if (this.isEmpty()) {
@@ -32,6 +35,7 @@ class linkedList {
         this.size++
     }
 
+    // INSERT TO LAST
     append(data) {
         const node = new Node(data)
         if (this.isEmpty()) {
@@ -48,6 +52,7 @@ class linkedList {
         this.size++
     }
 
+    // INSERT A NODE TO GIVEN INDEX POSITION
     insert(index, value) {
         const node = new Node(value)
         if (index <= 0 || index > this.size) {
@@ -67,6 +72,8 @@ class linkedList {
         this.size++
     }
 
+    // DELETE
+    // REMOVING FIRST NODE
     removeFirstNode() {
         if (this.isEmpty()) {
             console.log('List is empty...');
@@ -77,6 +84,7 @@ class linkedList {
         }
     }
 
+    // REMOVING LAST NODE
     removeLastNode() {
         if (this.isEmpty()) {
             console.log('List is empty...');
@@ -93,6 +101,7 @@ class linkedList {
 
     }
 
+    // REMOVING BY GIVEN INDEX
     removeNodeByIndex(index) {
         if (index < 0 || index > this.size) {
             console.log('Invalid index... ');
@@ -110,6 +119,8 @@ class linkedList {
         }
         this.size--
     }
+
+    // REMOVING NOGE BY GIVEN DATA
     removeNodeByData(data) {
         if(this.isEmpty()){
             console.log('List is empty...');
@@ -133,6 +144,7 @@ class linkedList {
         }
     }
 
+    // REMOVE DUPLICATES
     removeDuplicates(){ 
         if(this.isEmpty()){
             console.log('empty...');
@@ -148,6 +160,8 @@ class linkedList {
         this.size-- 
     }
 
+    // FIND
+    // FINDING BIGGEST NODE
     BiggextNode(){
         if(this.isEmpty()){
             console.log("Not available..");
@@ -164,6 +178,7 @@ class linkedList {
         }
     }
 
+    // FINDING LOWEST NODE
     LowestNode(){
         if(this.isEmpty()){
             console.log('no item');
@@ -180,6 +195,7 @@ class linkedList {
         }
     }
 
+    // FINDING MIDDLE
     Middle(){
         let current = this.head 
         let prev = this.head
@@ -190,6 +206,7 @@ class linkedList {
         return prev.data
     }
 
+    // FINDING FIRST NODE
     findFirst(){
         if(this.isEmpty()){
             return null
@@ -198,6 +215,7 @@ class linkedList {
         }
     }
 
+    // FINDING LAST NODE
     findLast(){
         if(this.isEmpty()){
             return null
@@ -210,6 +228,7 @@ class linkedList {
         }
     }
 
+    // PRINT REVERSLY
     reverse(){
         if(this.isEmpty()){
             console.log('No nodes here...');
@@ -226,6 +245,7 @@ class linkedList {
         }
     }
 
+    // PRINT
     print() {
         if (this.isEmpty()) {
             console.log('No node here');
