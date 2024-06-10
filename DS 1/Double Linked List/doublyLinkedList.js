@@ -1,5 +1,5 @@
 
-// class None {
+// class Node {
 //     constructor(data) {
 //         this.data = data
 //         this.prev = null
@@ -341,8 +341,8 @@ list.print()
 // const low = list.FindLowest()
 // console.log(low);
 
-// console.log('middle..');
-// console.log(list.findMiddle()); 
+console.log('middle..');
+console.log(list.findMiddle()); 
 
 // console.log('Last one ..');
 // console.log(list.findLast());
@@ -350,7 +350,7 @@ list.print()
 // console.log('First one ..');
 // console.log(list.findFirst());
 
-console.log('AFTER >>>>>>>>');
-list.RemoveDuplicates()
-list.print()
+// console.log('AFTER >>>>>>>>');
+// list.RemoveDuplicates()
+// list.print()
 

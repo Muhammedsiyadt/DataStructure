@@ -18,20 +18,37 @@
 // Taking ---  O(nlogn) Time Complexity
 
 
-const array = [12,32,13,54,66,75,32,66,15]
-function secLar(num) {
-    let large = Number.NEGATIVE_INFINITY
-    let sLarge = Number.NEGATIVE_INFINITY
+// const array = [12,32,13,54,66,75,32,66,15]
+// function secLar(num) {
+//     let large = Number.NEGATIVE_INFINITY
+//     let sLarge = Number.NEGATIVE_INFINITY
 
-    for (let i = 0; i < num.length; i++) {
-        if(num[i] > large){
-            sLarge =  large
-            large = num[i]
-        }else if(num[i] > sLarge && num[i] != large){
-            sLarge = num[i]
+//     for (let i = 0; i < num.length; i++) {
+//         if(num[i] > large){
+//             sLarge =  large
+//             large = num[i]
+//         }else if(num[i] > sLarge && num[i] != large){
+//             sLarge = num[i]
+//         }
+//     }
+//     return sLarge
+// }
+
+// console.log(secLar(array))
+
+function count (string){
+    var c = {}
+    for (let i = 0; i < string.length; i++) {
+        if(c[string[i]]){
+            c[string[i]]++
+        }else{
+            c[string[i]] = 1
         }
     }
-    return sLarge
+    return c 
 }
 
-console.log(secLar(array))
+// Example usage
+const string = "hello world";
+// const result = countCharacters(string);
+console.log(count(string)); 

@@ -21,4 +21,6 @@ const ar = [[1, 2, 3,[500]], [10, 20, 30], [100, 200, 300]]
 const sum = (ar) => {
     return ar.flat(Infinity).reduce((a, b) => a + b, 0)
 }
-console.log(sum(ar));  
+console.log(sum(ar));   
+
+

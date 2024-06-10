@@ -1,31 +1,309 @@
 
 
-// var array = [5,6,5,4,7,3,9,1,8,0]
-// var num = 10
-// for(i=0;i<array.length;i++){
-//     for(j=i+1;j<array.length;j++){
-//         if(array[i] + array[j] === 10){
-//             console.log(`${array[i]} + ${array[j]} = ${num}`);
-//         }
-//     }
-// }
+class Node {
+    constructor(data) {
+        this.data = data
+        this.next = null
+    }
+}
 
+class linkedList { 
+    constructor() {
+        this.head = null
+        this.size = 0
+    }
 
-// var nums = [6,1,6,8,10,6,3,6]
-// var target = 6
+    isEmpty() {
+        return this.size === 0
+    }
 
-// for (var i = 0; i < nums.length; i++) {
-//     if(nums[i] === target){
-//         for (var j = nums.length-1; j > i; j--) {
-//             if (nums[i] !== nums[j]) {
-//                 let temp = nums[i]
-//                 nums[i] = nums[j]
-//                 nums[j] = temp
-//                 console.log(nums);
-//             }
-            
-//         }
-//     }
-// }  
+    getSize() {
+        return this.size
+    }
 
-// console.log(nums);
+    prepend(data) {
+        const node = new Node(data)
+        if (this.isEmpty()) {
+            this.head = node
+        } else {
+            node.next = this.head
+            this.head = node
+        }
+        this.size++
+    }
+
+    append(data) {
+        const node = new Node(data)
+        if (this.isEmpty()) {
+            this.head = node
+        } else {
+            let current = this.head
+            while (current.next) {
+                current = current.next
+            }
+            current.next = node
+            node.next = null
+
+        }
+        this.size++
+    }
+
+    insert(index, value) {
+        const node = new Node(value)
+        if (index <= 0 || index > this.size) {
+            console.log('Invalid index..');
+        }
+        if (index === 0) {
+            node.next = this.head
+            this.head = node
+        } else {
+            let current = this.head
+            for (let i = 0; i < index - 1; i++) {
+                current = current.next
+            }
+            node.next = current.next
+            current.next = node
+        }
+        this.size++
+    }
+
+    removeFirstNode() {
+        if (this.isEmpty()) {
+            console.log('List is empty...');
+            return
+        } else {
+            this.head = this.head.next
+            this.size--
+        }
+    }
+
+    removeLastNode() {
+        if (this.isEmpty()) {
+            console.log('List is empty...');
+        } else {
+            let current = this.head
+            let prev = null
+            while (current.next) {
+                prev = current
+                current = current.next
+            }
+            prev.next = null
+            this.size--
+        }
+
+    }
+
+    removeNodeByIndex(index) {
+        if (index < 0 || index > this.size) {
+            console.log('Invalid index... ');
+        }
+        if (index === 0) {
+            this.head = this.head.next
+        } else {
+            let current = this.head
+            let prev = null
+            for (let i = 0; i < index - 1; i++) {
+                prev = current
+                current = current.next
+            }
+            prev.next = current.next
+        }
+        this.size--
+    }
+    removeNodeByData(data) {
+        if(this.isEmpty()){
+            console.log('List is empty...');
+        }
+        if(this.head.data === data){
+            this.head = this.head.next
+            this.size--
+            return data
+        }else{
+            let current = this.head
+            while(current.next && current.next.data != data){
+                current = current.next
+            }
+            if(current.next){
+                const Item = current.next
+                current.next = Item.next
+                this.size--
+                return data
+            }
+            console.log(`${data} not available in this linked list`);
+        }
+    }
+
+    removeDuplicates(){ 
+        if(this.isEmpty()){
+            console.log('empty...');
+        }else{
+            let current = this.head
+            while(current.next){
+                if(current.data === current.next.data){
+                    current.next = current.next.next
+                }
+                current = current.next
+            }
+        }
+        this.size-- 
+    }
+
+    BiggextNode(){
+        if(this.isEmpty()){
+            console.log("Not available..");
+        }else{
+            let current = this.head 
+            let max = this.head.data
+            while(current){
+                if(current.data > max){
+                    max = current.data
+                }
+                current = current.next
+            }
+            return max
+        }
+    }
+
+    LowestNode(){
+        if(this.isEmpty()){
+            console.log('no item');
+        }else{
+            let current = this.head
+            let lowest = this.head.data
+            while(current){
+                if(current.data < lowest){
+                    lowest = current.data
+                }
+                current = current.next
+            }
+            return lowest
+        }
+    }
+
+    Middle(){
+        let current = this.head 
+        let prev = this.head
+        while(current && current.next){
+            prev = prev.next
+            current = current.next.next
+        }
+        return prev.data
+    }
+
+    findFirst(){
+        if(this.isEmpty()){
+            return null
+        }else{
+            return this.head.data
+        }
+    }
+
+    findLast(){
+        if(this.isEmpty()){
+            return null
+        }else{
+            let current = this.head 
+            while(current.next){
+                current = current.next
+            }
+            return current.data
+        }
+    }
+
+    reverse(){
+        if(this.isEmpty()){
+            console.log('No nodes here...');
+        }else{
+            let current = this.head
+            let prev = null
+            while(current){
+                const nextNode = current.next
+                current.next = prev 
+                prev = current
+                current = nextNode
+            }
+            this.head = prev
+        }
+    }
+
+    print() {
+        if (this.isEmpty()) {
+            console.log('No node here');
+        } else {
+            let current = this.head
+            while (current) {
+                console.log(current.data);
+                current = current.next
+            }
+        }
+    }
+}
+
+const list = new linkedList()
+
+// PREPEND 
+list.prepend(10)
+// console.log("Size is : ",list.getSize());
+// list.print() 
+
+// APPEND
+list.append(20)
+list.append(30)
+list.append(40)
+list.append(50) 
+list.append(60) 
+list.append(70) 
+list.append(80)   
+// console.log("Size is : ",list.getSize());
+// list.print() 
+
+// INSERT
+// list.insert(2, 30)
+// console.log("Size is : ",list.getSize());
+// list.print() 
+
+// DELETE FIRST NODE
+// list.removeFirstNode()
+// console.log("Size is : ",list.getSize());
+// list.print() 
+
+// DELETE LAST NODE
+// console.log("Size is : ",list.getSize());
+// list.removeLastNode()
+// console.log("Size is : ",list.getSize());
+// list.print() 
+
+// DELETE NODE BY GIVING INDEX
+// console.log("Size is : ",list.getSize());
+// list.removeNodeByIndex(0)
+// console.log("Size is : ",list.getSize());
+// list.print() 
+
+// REMOVE NODE BY GIVING DATA
+// console.log("Size is : ", list.getSize());
+// list.removeNodeByData(10) 
+// console.log("Size is : ", list.getSize());
+// list.print() 
+
+// REVERSED LINKEDLIST
+// console.log("BEFORE >>>>>>>>>>>>>>>>>>>>>");
+// list.print()
+// console.log("AFTER >>>>>>>>>>>>>>>>>>>>>");
+// list.reverse()
+// list.print()
+
+// BIGGEST NODE 
+// console.log(list.BiggextNode());
+
+// LOWEST NODE
+// console.log(list.LowestNode()); 
+
+//MIDDLE NODE
+// list.print() 
+// console.log("Middle node : ",list.Middle());
+
+// FIRST NODE
+console.log("First node : ",list.findFirst());
+
+// LAST NODE
+console.log("Last node : ",list.findLast());  

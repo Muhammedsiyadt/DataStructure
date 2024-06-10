@@ -48,6 +48,6 @@ nums1.slice(1,3)
 // console.log(slice) // [ 2, 3 ]
 
 // Splice - String
-const str = ['orange' , 'banana' , 'apple']
+const str = ['orange' , 'banana' , 'apple'] 
 const splice = str.splice(1,2)
 console.log(splice); // [ 2, 3, 4 ]

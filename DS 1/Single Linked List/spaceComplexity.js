@@ -19,7 +19,7 @@ console.log(sample(arr))
 // O(n) Space complexity
 const sample2 = (n) => {
     const array = []
-    for(i=0;i<n;i++){
+    for(i=1;i<=n;i++){
         array.push(i*5)
     }
     return array
