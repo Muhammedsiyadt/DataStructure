@@ -59,6 +59,6 @@ class Hash{
     }
 }
 
-const table = new Hash() 
+const table = new Hash()    
 table.set('name', 'Muneer')
 console.log(table.get('name')); 

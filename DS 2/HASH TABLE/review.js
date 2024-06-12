@@ -1,48 +1,29 @@
 
-class Queue{
-  constructor(){
-    this.item = []
+function mergeSort(array) {
+  if(array.length <= 1){
+    return array
   }
 
-  enQueue(elem) {
-    this.item.push(elem)
-  }
+  const mid = Math.floor(array.length / 2)
+  const leftArray = array.slice(0 , mid)
+  const rightArray = array.slice(mid)
 
-  deQueue(){
-    if(this.isEmpty()){
-      console.log('Queue is empty..');
+  return merge(mergeSort(leftArray) , mergeSort(rightArray))
+}
+
+function merge(leftArray , rightArray){
+  const sorted = []
+
+  while(leftArray.length && rightArray.length){
+    if(leftArray[0] <= rightArray[0]){
+      sorted.push(leftArray.shift())
     }else{
-      return this.item.shift()
+      sorted.push(rightArray.shift()) 
     }
   }
 
-  isEmpty(){
-    return this.item.length === 0
-  }
-
-  print(){
-     console.log(this.item.join()); 
-  }
+  return [...sorted,...leftArray,...rightArray] 
 }
 
-function Reverse(queue){
-  if(queue.isEmpty()){
-    return;
-  }
-
-  let item = queue.deQueue() 
-
-  Reverse(queue)
-
-  console.log(item); 
-}
-
-const queue = new Queue()
-queue.enQueue(1)
-queue.enQueue(2)
-queue.enQueue(3)
-queue.enQueue(4)
-queue.enQueue(5)
-queue.print() 
-console.log('Reversed..'); 
-Reverse(queue) 
+const array = [9,5,1,2,3,4,7,8,6,5,2]
+console.log(mergeSort(array));  
