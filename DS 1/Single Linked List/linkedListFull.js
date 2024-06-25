@@ -133,7 +133,7 @@ class linkedList {
     middle(){
         let current = this.head 
         let prev = null
-        let half = Math.floor(this.size / 2)
+        let half = Math.floor(this.size / 2) 
         for (let i = 0; i < half; i++) {
             prev = current
             current = current.next 

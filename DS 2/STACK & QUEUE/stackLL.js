@@ -58,8 +58,8 @@ Stack.push(3)
 Stack.push(4)  
 Stack.push(5)  
 Stack.print() 
-console.log('...');  
+// console.log('...');  
 
-Stack.printOdd() 
-// Stack.pop()
-// Stack.print()  
+// Stack.printOdd() 
+Stack.pop()
+Stack.print()  

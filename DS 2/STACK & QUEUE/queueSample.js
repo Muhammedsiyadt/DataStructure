@@ -26,7 +26,7 @@ class Queue {
     }
 
     print(){
-        return this.isEmpty() ? 'No data' : this.items
+        return this.isEmpty() ? 'No data' : this.items 
     }
 }
 

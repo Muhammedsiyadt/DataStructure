@@ -45,14 +45,15 @@ function printReverse(stack){
         ar.push(stack.pop())
     }
 
-    for (let i = 0; i < ar.length; i++) {
-        if(ar[i] % 2 != 0){
-            odd.push(ar[i]) 
-        }
-    } 
-    console.log(odd);
+    // for (let i = 0; i < ar.length; i++) {
+    //     if(ar[i] % 2 != 0){
+    //         odd.push(ar[i]) 
+    //     } 
+    // } 
+    // console.log(odd);
     console.log(ar); 
 }
+
 
 const stack = new Stack()
 stack.push(1)

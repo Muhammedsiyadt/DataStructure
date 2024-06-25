@@ -26,7 +26,7 @@ class Queue{
 
     deQueue(){
         if(this.size === 0){
-            console.log('lsit is empty..');
+            console.log('list is empty..');
         }else{
             this.front = this.front.next
             this.size--
@@ -51,7 +51,7 @@ list.enQueue(10)
 list.enQueue(20)
 list.enQueue(30)
 list.display()
-console.log('...');
+console.log('...'); 
 list.deQueue()
 list.display() 
 console.log('peek :-',list.peek()); 
