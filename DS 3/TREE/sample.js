@@ -1,4 +1,4 @@
-class Node {
+class Node{
     constructor(data){
         this.data = data
         this.left = null
@@ -6,7 +6,7 @@ class Node {
     }
 }
 
-class BinarySearch{
+class binarySearchTree{
     constructor(){
         this.root = null
     }
@@ -16,33 +16,32 @@ class BinarySearch{
         if(!this.root){
             this.root = node
         }else{
-            this.inserFun(this.root , node)
+            this.inesertFun(this.root,node)
         }
     }
 
-    inserFun(root , node){
+    inesertFun(root,node){
         if(node.data < root.data){
-            if(root.left === null){
+            if(!root.left){
                 root.left = node
             }else{
-                return this.inserFun(root.left , node)
+                this.inesertFun(root.left , node)
             }
         }else{
-            if(root.right === null){
+            if(!root.right){
                 root.right = node
             }else{
-                return this.inserFun(root.right , node)
+                this.inesertFun(root.right , node)
             }
         }
     }
 
     search(root , data){
-        if(root === null){
+        if(root === null) {
             return false
         }
-
-        if(root.data === data){
-            return root
+        if(root.data = data){
+            return true
         }else if(data < root.data){
             return this.search(root.left , data)
         }else{
@@ -51,7 +50,7 @@ class BinarySearch{
     }
 
     remove(data){
-        return this.removeFun(this.root , data)
+        return this.removeFun(this.root, data)
     }
 
     removeFun(root , data){
@@ -61,21 +60,22 @@ class BinarySearch{
 
         if(data < root.data){
             root.left = this.removeFun(root.left , data)
-        }else if(data > root.data){
+        }else if(data > root.right){
             root.right = this.removeFun(root.right , data)
-        }else {
+        }else{
             if(root.left === null && root.right === null){
-                return null
-            }
-            if(root.left === null){
-                return root.right
-            }else if(root.right === null){
-                return root.left 
+                root = null
             }
 
-            const temp = this.findMin(root.right); 
-            root.data = temp.data;
-            root.right = this.removeNode(root.right, temp.data); 
+            if(root.left === null){
+                return root.right 
+            }else if(root.right === null){
+                return root.left
+            }
+
+            const temp = this.findMin(root.right)
+            root.data = temp.data
+            root.right = this.removeFun(root.right , temp.data)
         }
     }
 
@@ -84,7 +84,7 @@ class BinarySearch{
             root = root.left
         }
         return root
-    }
+    } 
 
     findMax(root){
         while(root.right !== null){
@@ -93,20 +93,15 @@ class BinarySearch{
         return root
     }
 
-    height(root){
-        if(root === null){
-            return -1
-        }else{
-            return Math.max(this.height(root.left) , this.heigh(root.right)) + 1
-        }
-    }
-
     count(root){
         if(!root){
-            return -1
-        }else{
-            return this.count(root.left) + this.count(root.right) + 1
+            return null
         }
+        return this.count(root.left) + this.count(root.right) + 1
     }
 
+    height(root){
+        if(!root) return 0
+        return Math.max(this.height(root.left) , this.height(root.right)) + 1
+    }
 }
