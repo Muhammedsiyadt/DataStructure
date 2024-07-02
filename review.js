@@ -15,7 +15,7 @@ function heapSort(arr){
     }
 
     return arr
-}
+} 
 
 function heapify(arr , n , i){
     let largest = i 

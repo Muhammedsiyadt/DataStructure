@@ -97,7 +97,7 @@ class BinarySearch{
         if(root === null){
             return -1
         }else{
-            return Math.max(this.height(root.left) , this.heigh(root.right)) + 1
+            return Math.max(this.height(root.left) , this.heigh(root.right)) + 1 
         }
     }
 
