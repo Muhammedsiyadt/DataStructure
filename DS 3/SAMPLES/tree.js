@@ -72,7 +72,7 @@ class linkedList{
             return root.left
            }
 
-            const temp = this.findMin(root.right)
+            const temp = this.findMin(root.right) 
             root.data = temp.data
             root.right = this.removeFun(root.right , temp.data)
         }
@@ -109,6 +109,10 @@ class linkedList{
         }
     }
 
+    dfs(){
+        
+    }
+
     bfs(){
         const result = []
         const queue = []
@@ -119,7 +123,7 @@ class linkedList{
         while(queue.length > 0){
             const current = queue.shift() 
             console.log(current);
-            result.push(current.data)
+            result.push(current.data) 
 
             if(current.left !== null){
                 queue.push(current.left)
@@ -144,14 +148,6 @@ class linkedList{
             console.log(root.data);
             this.preOrder(root.left)
             this.preOrder(root.right)
-        }
-    }
-
-    preOrder(root){
-        if(root){
-            this.preOrder(root.left)
-            this.preOrder(root.right)
-            console.log(root.data);
         }
     }
 
